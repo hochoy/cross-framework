@@ -3,15 +3,28 @@
   "version": "1.0.0",
   "description": "tools to cross frameworks",
   "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./build/index.esm.js",
+      "require": "./build/index.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:pkg": "rollup -c"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^17.0.80",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "rollup": "^4.17.2",
+    "tslib": "^2.6.2",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
