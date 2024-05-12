@@ -7,7 +7,8 @@ interface DisplayProps {
 const Display: React.FC<DisplayProps> = ({ value }) => {
   return (
     <div>
-      <h1>{value}</h1>
+      <h1>I am a Display React Component</h1>
+      <p>{value}</p>
     </div>
   )
 }
