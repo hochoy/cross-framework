@@ -1,5 +1,5 @@
 {
-  "name": "cross-framework",
+  "name": "@hochoy/cross-framework",
   "version": "1.0.0",
   "description": "tools to cross frameworks",
   "main": "index.js",
