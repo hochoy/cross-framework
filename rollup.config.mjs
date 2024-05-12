@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import json from "@rollup/plugin-json";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
@@ -27,6 +28,9 @@ export default {
     resolve(),
     commonjs(),
     typescript(),
-    json()
+    json(),
+    // https://rollupjs.org/tools/#peer-dependencies
+    // https://www.npmjs.com/package/rollup-plugin-peer-deps-external
+    peerDepsExternal()
   ]
 };
