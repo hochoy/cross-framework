@@ -52,5 +52,8 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@hochoy",
     "access": "restricted"
+  },
+  "dependencies": {
+    "@restart/hooks": "^0.4.16"
   }
 }
