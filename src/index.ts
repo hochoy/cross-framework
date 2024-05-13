@@ -1,1 +1,4 @@
-export { default as Display } from "./Display"
+import Display from "./components/Display"
+import MfeReactRoot from "./components/MfeReactRoot"
+
+export { Display }
