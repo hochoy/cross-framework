@@ -11,12 +11,13 @@ type CallbackProps = {
 }
 
 const MfeReactRoot = ({
-  // The Remote MFE to mount
+  id,
   importedModule,
   inputProps,
   callbackProps
 }:
   {
+    id: string,
     importedModule: any,
     inputProps: InputProps,
     callbackProps: CallbackProps,
@@ -38,13 +39,13 @@ const MfeReactRoot = ({
       return callbackFunc(e.detail)
     }
     for (const key in callbackProps) {
-      window.addEventListener(key, handleEvent(callbackProps[key]) as EventListener)
+      window.addEventListener(`${id}-${key}`, handleEvent(callbackProps[key]) as EventListener)
     }
 
     // remove listeners when the component is unmounted
     return () => {
       for (const key in callbackProps) {
-        window.removeEventListener(key, handleEvent(callbackProps[key]) as EventListener)
+        window.removeEventListener(`${id}-${key}`, handleEvent(callbackProps[key]) as EventListener)
       }
     }
   }, [])
@@ -52,7 +53,7 @@ const MfeReactRoot = ({
   // register listeners for the Shell input prop changes to send to MFE
   useEffect(() => {
     // TODO: Should we loop across each input prop and add a listener for each?
-    const event = new CustomEvent('pers_api_mfe_lite_input_props_update', {
+    const event = new CustomEvent(`${id}-input`, {
       detail: inputProps
     })
     window.dispatchEvent(event)
